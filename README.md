@@ -4,8 +4,7 @@
 
 Start with a basic LLM API request; progressively add conversations, Python function tools, reproducible statistical analysis, multi-step orchestration, evaluation, monitoring, retrieval-augmented generation (RAG), multiple specialised agents, and advanced task planning.
 
-The tutorial uses **synthetic biomedical-style datasets** for statistical exercises and publicly accessible scientific abstracts for literature retrieval. It is intended for learning, **not clinical decision-making**. LLM-generated statistics and citations should be independently checked.
-
+The tutorial uses **synthetic biomedical-style datasets** for statistical exercises and publicly accessible scientific abstracts for literature retrieval. It is intended for learning, **not clinical decision-making**. 
 ## Learning path
 
 | Lesson | Folder | What you will build |
@@ -21,7 +20,7 @@ The tutorial uses **synthetic biomedical-style datasets** for statistical exerci
 | 09 | `09_multi_agent/` | Compare handoffs and agents-as-tools; combine statistical and literature specialists. |
 | 10 | `10_advanced_orchestration/` | Build validated plans, select specialist roles, execute independent tasks concurrently, and demonstrate bounded replanning. |
 
-Follow the lessons in order if you're new to agents. Each folder has its own **README.md**, scripts, and (where applicable) offline tests. Run scripts **from their lesson directory** so relative file paths resolve correctly.
+Follow the lessons in order if you're new to agents. Each folder has its own **.md** tutorial, scripts, and (where applicable) offline tests. Run scripts **from their lesson directory** so relative file paths resolve correctly.
 
 ## Prerequisites
 
@@ -62,7 +61,7 @@ QDRANT_API_KEY=
 QDRANT_COLLECTION=
 ```
 
-**Never commit `.env` or API credentials.** Each lesson may also contain its own `.env.example`; the root file provides the common defaults. `python-dotenv` normally searches upwards from a script, so the root `.env` can be used for lessons with `load_dotenv()`; when a lesson uses its own configuration or requests a local `.env`, follow that lesson's README. Environment variables already set in your shell may override `.env` entries.
+**Never commit `.env` or API credentials.** Each lesson may also contain its own `.env.example`; the root file provides the common defaults. `python-dotenv` normally searches upwards from a script, so the root `.env` can be used for lessons with `load_dotenv()`; when a lesson uses its own configuration or requests a local `.env`, follow that lesson's .md file. Environment variables already set in your shell may override `.env` entries.
 
 Then choose a lesson:
 
