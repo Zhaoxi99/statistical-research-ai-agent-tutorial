@@ -1,0 +1,23 @@
+# Root dependencies for Lessons 01–10.
+# Install from the repository root: python -m pip install -r requirements.txt
+# For a fully frozen reproducible environment, record resolved versions separately.
+
+# LLMs, agents and environment configuration
+openai>=1.0
+openai-agents>=0.2.0
+python-dotenv>=1.0
+pydantic>=2.0
+
+# Statistical computing
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+statsmodels>=0.14
+
+# Public research metadata / external HTTP requests
+requests>=2.31
+
+# Optional cloud vector database used in Lessons 08–10
+qdrant-client>=1.12
+
+# Intentionally NOT installing ChromaDB: Lesson 08 uses Qdrant Cloud.
