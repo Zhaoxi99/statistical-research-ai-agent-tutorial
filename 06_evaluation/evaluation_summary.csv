@@ -1,0 +1,78 @@
+id,repeat,required_recall,decision_pass,tool_execution_pass,tool_error_count,run_error,calls,unexpected_calls,answer
+T1,1,1.0,True,True,0,,"[""list_datasets"", ""inspect_data""]",[],"The **biomarker** dataset has 200 rows and three columns:
+
+- `age` — float; 0 missing values
+- `sex` — integer (coded 0/1); 0 missing values
+- `biomarker` — float; 0 missing values"
+T2,1,1.0,True,True,0,,"[""list_datasets"", ""describe_variable""]",[],The mean age in the biomarker dataset is **64.70 years** (n = 200).
+T3,1,1.0,True,True,0,,"[""fit_regression""]",[],"OLS model: **biomarker ~ age + sex** (n = 200)
+
+- **Intercept:** 101.415 (SE 7.985; 95% CI 85.669–117.161)
+- **Age:** 0.772 per year (SE 0.121; 95% CI 0.532–1.011)
+- **Sex (coded 0/1):** 11.281 (SE 2.138; 95% CI 7.066–15.497)
+
+R² = 0.261. These are adjusted associations, not causal effects."
+T4,1,1.0,False,True,0,,"[""inspect_data"", ""describe_variable"", ""describe_variable"", ""describe_variable"", ""fit_regression"", ""check_regression_assumptions""]","[""describe_variable""]","For **biomarker ~ age + sex** in the biomarker dataset:
+
+- **Data:** 200 complete observations; sex coded 0/1.
+- **Residual normality:** Shapiro–Wilk p = **0.934**; no evidence of non-normality.
+- **Homoscedasticity:** Breusch–Pagan p = **0.152** (LM) and **0.153** (F); no strong evidence of heteroscedasticity.
+- **Influence:** Maximum Cook’s distance = **0.071**. Ten observations exceed the heuristic 4/n threshold (**0.020**), warranting plot-based inspection, though this threshold is not definitive.
+
+Overall, these screens do not identify clear violations of residual normality or constant variance. They do not establish independence, linearity, or causality; residual and influence plots plus study-design knowledge remain important."
+T5,1,1.0,True,True,0,,[],[],"A **p-value** measures how incompatible the observed data are with a specified null hypothesis, assuming that null hypothesis is true. A small p-value indicates that the data would be relatively unusual under the null; it does **not** give the probability that the null is false.
+
+A **Bayes factor** compares the relative evidence supplied by the data for two hypotheses or models:
+
+\[
+BF_{10}=\frac{P(\text{data}\mid H_1)}{P(\text{data}\mid H_0)}.
+\]
+
+For example, \(BF_{10}=5\) means the data are five times more probable under \(H_1\) than under \(H_0\), given the specified models and priors.
+
+Key distinctions:
+
+- **P-value:** evaluates extremeness under a null model; typically used for hypothesis-testing procedures.
+- **Bayes factor:** compares predictive support for competing models.
+- **P-values do not require a prior**; Bayes factors require prior specifications, especially for parameter values.
+- **P-values do not directly measure evidence for either hypothesis**; Bayes factors quantify relative evidence between hypotheses.
+- A small p-value and a large Bayes factor often point in the same direction, but they can disagree, particularly with large samples, diffuse priors, or effects near the detection threshold."
+T6,1,1.0,True,True,0,,"[""inspect_data"", ""describe_variable"", ""describe_variable"", ""describe_variable"", ""fit_regression"", ""check_regression_assumptions""]",[],"## Biomarker ~ age + sex
+
+### Data inspection
+- **N = 200**
+- Variables: age, sex, biomarker
+- No missing values
+- Sex is coded 0/1; 101 observations are coded 1 and 99 coded 0.
+
+### Descriptive statistics
+
+| Variable | Mean | SD | Range |
+|---|---:|---:|---:|
+| Biomarker | 157.03 | 17.49 | 108.11–210.78 |
+| Age | 64.70 | 8.82 | 43.68–94.14 |
+| Sex | 0.505 | 0.501 | 0–1 |
+
+### Regression results
+
+\[
+\text{biomarker} = 101.41 + 0.772(\text{age}) + 11.28(\text{sex})
+\]
+
+| Predictor | Estimate | SE | 95% CI | p-value |
+|---|---:|---:|---:|---:|
+| Age | 0.772 | 0.121 | 0.532–1.011 | <0.001 |
+| Sex | 11.281 | 2.138 | 7.066–15.497 | <0.001 |
+| Intercept | 101.415 | 7.985 | 85.669–117.161 | <0.001 |
+
+- **R² = 0.261**
+- Holding sex constant, each additional year of age is associated with a **0.77-unit higher biomarker value**.
+- Holding age constant, sex = 1 is associated with an **11.28-unit higher biomarker value** than sex = 0.
+- These are adjusted associations, not causal effects.
+
+### Diagnostics
+- **Residual normality:** Shapiro–Wilk p = 0.934; no evidence of non-normality in this screening test.
+- **Heteroscedasticity:** Breusch–Pagan p ≈ 0.15; no statistically significant evidence detected.
+- **Influence:** Maximum Cook’s distance = 0.071. Ten observations exceeded the heuristic \(4/n = 0.02\) threshold, warranting inspection.
+- These diagnostics do not establish independence, linearity, causal validity, or absence of influential-case concerns."
+T7,1,1.0,True,True,1,,"[""fit_regression""]",[],The regression could not be fit because the dataset **“phantom”** does not exist. Available datasets are **“biomarker”** and **“biomarker_replication.”**

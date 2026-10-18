@@ -1,0 +1,5 @@
+[
+  {"id":"Q1","question":"What features of Bayesian adaptive trials allow modifications based on accumulating data?","expected_source_terms":["adaptive","Bayesian"]},
+  {"id":"Q2","question":"What are the main advantages and limitations of Bayesian adaptive clinical trial designs?","expected_source_terms":["trial"]},
+  {"id":"Q3","question":"What is the guaranteed trial outcome for a fictional drug called ZYX-2027?","expected_source_terms":[],"should_abstain":true}
+]

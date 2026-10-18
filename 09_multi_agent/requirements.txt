@@ -1,0 +1,9 @@
+openai-agents
+openai
+python-dotenv
+pandas
+numpy
+scipy
+statsmodels
+pydantic
+qdrant-client
